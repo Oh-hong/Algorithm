@@ -1,10 +1,13 @@
 function solution(price, money, count) {
-    var answer = money;
-    for(i = 1; i <= count; i++) {
-        answer = answer - price * i
+    var answer = 0;
+    let totalPrice = 0;
+    for (i=1; i <= count; i++) {
+        totalPrice = totalPrice + price * i
     }
-    if(answer >= 0) {
+    
+    if(money > totalPrice) {
         return 0;
     }
-    return Math.abs(answer);
+    answer = totalPrice-money
+    return answer;
 }
