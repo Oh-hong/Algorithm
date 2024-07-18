@@ -1,18 +1,10 @@
 function solution(n) {
-    
-    var answer = 0;
-    for(i = 1; i <= n; i++) {
-        let correct = 0;
-        for(j = i; j <= n; j++) {
-            correct = correct + j;
-            if(correct > n) {
-                break;
-            }
-            else if(correct === n) {
-                answer = answer + 1
-            }
-            continue;
+    let answer = 0;
+    for (let i = 1; i * (i - 1) / 2 < n; i++) {
+        if ((n - i * (i - 1) / 2) % i === 0) {
+            answer++;
         }
     }
+
     return answer;
 }
